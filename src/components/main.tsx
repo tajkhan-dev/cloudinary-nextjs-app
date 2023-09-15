@@ -1,25 +1,20 @@
-"use server "
-import React from 'react'
-import  cloudinary  from 'cloudinary';
-import Gallerygrid from './gallery-grid';
+import React from "react";
+import cloudinary from "cloudinary";
+import Gallerygrid, { GallerygridProps } from "./gallery-grid";
+import Uploadbtn from "./Uploadbtn";
 
-const Main =async () => {
-    const results = (await cloudinary.v2.search
-        .sort_by("created_at", "desc")
-        .with_field("tags")
-        .max_results(30)
-        .execute()) ;
-        console.log(results)
+const Main = async () => {
+  const results = (await cloudinary.v2.search
+    .expression("resource_type:image")
+    .sort_by("public_id", "desc").max_results(20)
+    .execute()) as { resources: GallerygridProps[] };
+
   return (
-<>
+    <>
+      <Uploadbtn />
+      <Gallerygrid images={results.resources} />
+    </>
+  );
+};
 
-<div>
-    <Gallerygrid resourses={results.resourses} />
-</div>
-
-
-</>
-  )
-}
-
-export default Main
+export default Main;
