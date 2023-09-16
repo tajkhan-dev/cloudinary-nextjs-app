@@ -1,6 +1,4 @@
-
-
-import Main from '@/components/main';
+import Gallery from './gallery/page';
 
 
 
@@ -8,7 +6,7 @@ export default function Home() {
   return (
  <>
 
-<Main />
+<Gallery />
 
 
  </>

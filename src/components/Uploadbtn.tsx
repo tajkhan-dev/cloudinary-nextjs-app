@@ -2,10 +2,11 @@
 import React, { useState } from 'react'
 import { CldUploadButton, CldUploadWidgetResults } from "next-cloudinary";
 import { Button } from "./ui/button";
+import { useRouter } from 'next/navigation';
 
 
 const Uploadbtn = () => {
-    const [publicId, setpublicId] = useState("");
+    const router=useRouter()
   return (
    <>
        <div>
@@ -27,9 +28,9 @@ const Uploadbtn = () => {
             </svg>
 
             <CldUploadButton
-              uploadPreset='cysotgm6'
+              uploadPreset='bdrfihwu'
               onUpload={( result : any) => {
-                setpublicId(result.info.public_id);
+            router.refresh()
               }}
             />
           </div>

@@ -1,5 +1,6 @@
 import React from "react"
 import { Button } from "./ui/button"
+import Link from "next/link"
 
 
 
@@ -14,6 +15,7 @@ export default function Sidebar() {
             Photo App
           </h2>
           <div className="space-y-1">
+            <Link href={"/gallery"}>
             <Button variant="secondary" className="w-full justify-start">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -30,6 +32,8 @@ export default function Sidebar() {
               </svg>
               Gallery
             </Button>
+            </Link>
+            <Link href="/favorite">
             <Button variant="ghost" className="w-full justify-start">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -48,6 +52,9 @@ export default function Sidebar() {
               </svg>
               favourite
             </Button>
+            </Link>
+            <Link href={"/albums"}>
+
             <Button variant="ghost" className="w-full justify-start">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -58,7 +65,7 @@ export default function Sidebar() {
                 strokeLinecap="round"
                 strokeLinejoin="round"
                 className="mr-2 h-4 w-4"
-              >
+                >
                 <path d="M4.9 19.1C1 15.2 1 8.8 4.9 4.9" />
                 <path d="M7.8 16.2c-2.3-2.3-2.3-6.1 0-8.5" />
                 <circle cx="12" cy="12" r="2" />
@@ -67,6 +74,7 @@ export default function Sidebar() {
               </svg>
              Albums
             </Button>
+                </Link>
           </div>
         </div>
        
