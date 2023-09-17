@@ -1,5 +1,7 @@
+"use client"
 import React from "react"
 import { Button } from "./ui/button"
+import { usePathname } from "next/navigation"
 import Link from "next/link"
 
 
@@ -7,6 +9,7 @@ import Link from "next/link"
 
 
 export default function Sidebar() {
+  const path =usePathname()
   return (
     <div className="w-1/5">
       <div className="space-y-4 py-4">
@@ -16,7 +19,7 @@ export default function Sidebar() {
           </h2>
           <div className="space-y-1">
             <Link href={"/gallery"}>
-            <Button variant="secondary" className="w-full justify-start">
+            <Button variant={path==="/gallery"?"secondary":"ghost"} className="w-full justify-start">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
@@ -34,7 +37,7 @@ export default function Sidebar() {
             </Button>
             </Link>
             <Link href="/favorite">
-            <Button variant="ghost" className="w-full justify-start">
+            <Button variant={path==="/favorite"?"secondary":'ghost'} className="w-full justify-start">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
@@ -55,7 +58,7 @@ export default function Sidebar() {
             </Link>
             <Link href={"/albums"}>
 
-            <Button variant="ghost" className="w-full justify-start">
+            <Button variant={path==="/albums"?"secondary":"ghost"} className="w-full justify-start">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
